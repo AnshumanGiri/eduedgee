@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - EduEdge</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signin-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .form-group img {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5722;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e64a19;
+        }
+
+        .signup-link {
+            margin-top: 10px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <h2>Sign In to EduEdge</h2>
+        <form id="signin-form">
+            <div class="form-group">
+                <img src="user.png" alt="Username Icon">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <img src="icons8-email-30.png" alt="Email Icon">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <img src="passcode-security.png" alt="Password Icon">
+                <input type="password" id="passcode" placeholder="Password (Passcode)" required>
+            </div>
+            <button type="button" onclick="signIn()">Sign In</button>
+        </form>
+   
+    </div>
+
+    <script>
+        function signIn() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const passcode = document.getElementById('passcode').value;
+
+            // Retrieve existing users from localStorage
+            const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check for matching user
+            const user = existingUsers.find(user => user.username === username && user.email === email && user.passcode == passcode);
+
+            if (user) {
+                alert(`Welcome back, ${user.username}!`);
+                // Store user data in sessionStorage for profile page
+                sessionStorage.setItem('currentUser', JSON.stringify(user));
+                // Redirect to the profile page
+                window.location.href = 'profile.html'; // Ensure you create this profile page
+            } else {
+                alert('Incorrect username, email, or passcode. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

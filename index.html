@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduEdge</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(to right, #30075c, #5934ff);
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff5722;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            color: #f1f1f1;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: linear-gradient(to right, #30075c, #5934ff);
+            border-radius: 20px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #f6a000, #f95726);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 600px) {
+            .caption {
+                font-size: 16px;
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EduEdge</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="abc.jpg" alt="Slide 1">
+            <div class="caption">Our students playing Basketball</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="albal.html.jpg" alt="Slide 2">
+            <div class="caption">Our School</div>
+        </div>
+        
+
+    <section id="about">
+        <h2>About EduEdge</h2>
+        <p>G.D. Goenka Public School is a fantastic place for students to learn and grow. It’s known for its strong focus on both academics and extracurricular activities, which helps students explore their passions. The school has a great community vibe, with dedicated teachers who genuinely care about helping each student succeed. The facilities are top-notch, providing everything needed for a fun and engaging learning experience. Beyond just studying, G.D. Goenka emphasizes the importance of sports, arts, and values, ensuring that students develop into well-rounded individuals.
+
+            This website was created by Anshuman Giri from 7A.</p>
+    </section>
+
+    <section id="features">
+        <h2>Features</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li>✔ Personalized Notes</li>
+            <li>✔ Interactive Videos</li>
+            <li>✔ Real-time Doubt Solving</li>
+            <li>✔ Collaborative Study Groups</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Stay in Touch</h2>
+        <p>If you have any questions or feedback, feel free to reach out!</p>
+        <button onclick="window.location.href='signin.html'">Sign In</button>
+      
+    </section>
+
+    <footer>
+        <p>&copy; 2024 EduEdge. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
+</body>
+</html>
